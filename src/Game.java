@@ -24,7 +24,6 @@ public class Game
     private Player player1;
     private String playerName;
     private HashMap<String,Room> rooms;
-    private CommandWords commandWords;
     private CommandStack redoStack;
     private CommandStack undoStack;
     
@@ -40,7 +39,6 @@ public class Game
         initializeGame();
         undoStack = new CommandStack();
         redoStack = new CommandStack();
-        commandWords = new CommandWords();
     }
 
     /**
@@ -173,7 +171,7 @@ public class Game
             System.out.println("I don't know what you mean...");
             return false;
         }
-        if(commandWords.isReversible(command.getCommandWord()))
+        if(parser.isReversible(command.getCommandWord()))
         {
         	redoStack.empty();
         }

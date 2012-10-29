@@ -13,7 +13,7 @@ import java.util.Scanner;
  * the known commands, and if the input is not one of the known commands, it
  * returns a command object that is marked as an unknown command.
  * 
- * @author  Michael Kölling and David J. Barnes
+ * @author  Michael Kï¿½lling and David J. Barnes
  * @version 2011.07.31
  */
 public class Parser 
@@ -64,5 +64,10 @@ public class Parser
     }
     public String showCommands(){
         return commands.getCommandList();
+    }
+    
+    public boolean isReversible(String commandWord)
+    {
+    	return commands.isReversible(commandWord);
     }
 }

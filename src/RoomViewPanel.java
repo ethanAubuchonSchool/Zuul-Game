@@ -41,8 +41,8 @@ public class RoomViewPanel extends Room {
 		panel.setLayout(new FlowLayout());
 		panel.add(new JLabel(getLongDescription()));
 		
-		//creat buttons for exits 
-		//black color buttons mean there is no exit
+		//create buttons for exits 
+		//black colour buttons mean there is no exit
 		JButton nB = new JButton("North Button");
 		JButton sB = new JButton("South Button");
 		JButton eB = new JButton("East Button");
