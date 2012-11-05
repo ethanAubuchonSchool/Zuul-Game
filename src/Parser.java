@@ -70,4 +70,5 @@ public class Parser
     {
     	return commands.isReversible(commandWord);
     }
+
 }

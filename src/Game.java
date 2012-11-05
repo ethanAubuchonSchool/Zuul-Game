@@ -40,7 +40,12 @@ public class Game
         undoStack = new CommandStack();
         redoStack = new CommandStack();
     }
-
+    
+    public HashMap<String,Room> getRooms()
+    {
+    	return rooms;
+    }
+    
     /**
      * Create all the rooms and link their exits together.
      */
