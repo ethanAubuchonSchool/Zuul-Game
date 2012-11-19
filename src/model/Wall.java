@@ -50,12 +50,28 @@ public class Wall {
 	
 	public boolean hasMonster(String name)
 	{
-		return monster.getName().equals(name);
+		if(hasMonster())
+			return monster.getName().equals(name);
+		
+		return false;
+	}
+	
+	public boolean hasMonster()
+	{
+		return monster!=null;
 	}
 	
 	public boolean hasItem(String name)
 	{
-		return item.getItemName().equals(name);
+		if(hasItem())
+			return item.getItemName().equals(name);
+		
+		return false;
+	}
+	
+	public boolean hasItem()
+	{
+		return item!=null;
 	}
 	
 	public boolean hasExit()

@@ -2,7 +2,7 @@ package model.object;
 
 import java.util.Random;
 
-import model.Room;
+//import model.Room;
 
 /**
  * Monster class
@@ -13,8 +13,8 @@ public class Monster {
 
 	private String name;
 	private int health;
-	private Room currentRoom;
-	private Room lastRoom;
+	//private Room currentRoom;
+	//private Room lastRoom;
 
 	/**
 	 * Create a new monster
@@ -65,12 +65,12 @@ public class Monster {
 	public int getHealth() {
 		return health;
 	}
-	public void setCurrentRoom(Room r){
+/*	public void setCurrentRoom(Room r){
 		currentRoom = r;
 	}
 	public Room getCurrentRoom(){
 		return currentRoom;
-	}
+	}*/
 	public String randomMove(){
 		Random r = new Random();
 		String[] exits = new String[]{"east","west","south","north"};

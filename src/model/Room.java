@@ -61,7 +61,7 @@ public class Room {
 	 *            The west exit.
 	 */
 	public void setExits(String direction, Room neighbor) {
-		if(walls.get(direction).hasExit())
+		if(!walls.get(direction).hasExit())
 			walls.get(direction).setExit(neighbor);
 		else
 			System.out.println("Exit Override Error:\nExit " + neighbor.getDescription() + " not added to " + this.description + " " + direction +" wall.");
@@ -103,7 +103,7 @@ public class Room {
 	}
 
 	public void addItem(Item item, String wall) {
-		if(walls.get(wall).hasItem(null))
+		if(!walls.get(wall).hasItem())
 			walls.get(wall).setItem(item);
 		else
 			System.out.println("Item Override Error:\nItem " + item.getItemName() + " not added to " + this.description + " " + wall +" wall.");
@@ -114,9 +114,12 @@ public class Room {
 		Set<String> keys = walls.keySet();
 		for (String item : keys) {
 			Item i = walls.get(item).getItem();
-			itemString += " Key : " + i.getItemName() + " Description : "
-					+ i.getItemName() + " Weight : "
-					+ i.getItemWeight() + "\n";
+			if(i!=null)
+			{
+				itemString += " Key : " + i.getItemName() + " Description : "
+					       + i.getItemName() + " Weight : "
+					       + i.getItemWeight() + "\n";
+			}
 		}
 		return itemString;
 	}
@@ -129,10 +132,13 @@ public class Room {
 		String ret = "Monsters in room:\n";
 		Set<String> keys = walls.keySet();
 		for (String wall : keys) {
-			if (walls.get(wall).getMonster().isAlive()) {
-				ret += "- Name : " + walls.get(wall).getMonster().getName() + " (" + walls.get(wall).getMonster().getHealth() + ")\n";
-			} else {
-				ret += "- Name : " + walls.get(wall).getMonster().getName() + " (DEAD)\n";
+			if(walls.get(wall).hasMonster())
+			{
+				if (walls.get(wall).getMonster().isAlive()) {
+					ret += "- Name : " + walls.get(wall).getMonster().getName() + " (" + walls.get(wall).getMonster().getHealth() + ")\n";
+				} else {
+					ret += "- Name : " + walls.get(wall).getMonster().getName() + " (DEAD)\n";
+				}
 			}
 		}
 		return ret;
@@ -171,7 +177,7 @@ public class Room {
 	 * @param monster
 	 */
 	public void addMonster(Monster monster, String wall) {
-		if(walls.get(wall).hasMonster(null))
+		if(!walls.get(wall).hasMonster())
 			walls.get(wall).setMonster(monster);
 		else
 			System.out.println("Monster Override Error:\nMonster " + monster.getName() + " not added to " + this.description + " " + wall +" wall.");
@@ -195,15 +201,21 @@ public class Room {
 	 * @param key
 	 * @return
 	 */
-	public Monster getMonster(String key) {
+	public Monster getMonster(String m) {
 		Set<String> keys = walls.keySet();
 		for (String wall : keys)
-			if(walls.get(wall).hasMonster(key))
+			if(walls.get(wall).hasMonster(m))
 				return walls.get(wall).getMonster();
 		return null;
 	}
-	public HashMap<String, Monster> getMonsterList(){
-		return monsters;
+	
+	public boolean hasMonster()
+	{
+		Set<String> keys = walls.keySet();
+		for (String wall : keys)
+			if(walls.get(wall).hasMonster())
+				return true;
+		return false;
 	}
 	
 	/**
