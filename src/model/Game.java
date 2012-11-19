@@ -11,6 +11,8 @@ import model.command.CommandStack;
 
 import model.object.*;
 
+import view.FirstPersonItem;
+import view.FirstPersonMonster;
 import view.FirstPersonRoom;
 import view.FirstPersonView;
 import view.MapRoom;
@@ -111,9 +113,9 @@ public class Game extends Observable implements Observer
         entrance.setExits("south",lobby);
         
         //create the items
-        Item plant = new Item("Plant",2.0);
-        Item sword = new Item("Sword", 7.0);
-        Item pogoStick = new Item("PogoStix", 5.0);
+        Item plant = new FirstPersonItem("Plant",2.0,"PogoStick.jpg");
+        Item sword = new FirstPersonItem("Sword", 7.0,"excalibur-sword.jpg");
+        Item pogoStick = new FirstPersonItem("PogoStix", 5.0, "rubber-plant.jpg");
         
         //Add Items
         entrance.addItem(plant);
@@ -121,9 +123,9 @@ public class Game extends Observable implements Observer
         dressingroom.addItem(pogoStick);
         
         //Create monsters
-        Monster kracken = new Monster("Kracken",10);
-        Monster grendel = new Monster("Grendel", 8);
-        Monster goblin = new Monster("Goblin",3);
+        Monster kracken = new FirstPersonMonster("Kracken",10,"Kracken.jpg");
+        Monster grendel = new FirstPersonMonster("Grendel", 8, "Grendel___old_by_nguy0699.jpg");
+        Monster goblin = new FirstPersonMonster("Goblin",3, "troll.jpg");
         
         
         //Add Monsters to room
