@@ -202,6 +202,9 @@ public class Room {
 				return walls.get(wall).getMonster();
 		return null;
 	}
+	public HashMap<String, Monster> getMonsterList(){
+		return monsters;
+	}
 	
 	/**
 	 * Addition by Sean Byron
