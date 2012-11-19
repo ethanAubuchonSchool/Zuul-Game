@@ -18,7 +18,7 @@ public class Player{
 	private int health;
 	private HashMap<String,Item> itemsInPossesion;
 	private int stamina = 10;
-	private Stack<String> lastMonsterAttacked;
+	//private Stack<String> lastMonsterAttacked;
 	
 	
 	private Stack<Integer> staminaLoss;
@@ -34,7 +34,7 @@ public class Player{
 		currentWeight = 0;
 		itemsInPossesion = new HashMap<String,Item>();
 		staminaLoss = new Stack<Integer>();
-		lastMonsterAttacked = new Stack<String>();
+		//lastMonsterAttacked = new Stack<String>();
 	}
 
 	/**
@@ -192,11 +192,11 @@ public class Player{
 	public void addStaminaLoss(int n){
 		staminaLoss.push(n);
 	}
-	public void pushLastMonsterAttacked(String monsterName){
+	/*public void pushLastMonsterAttacked(String monsterName){
 		lastMonsterAttacked.push(monsterName);
 	}
 	public String getLastMonsterAttacked(){
 		return lastMonsterAttacked.pop();
-	}
+	}*/
 
 }
