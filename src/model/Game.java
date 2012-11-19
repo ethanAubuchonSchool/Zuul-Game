@@ -118,9 +118,9 @@ public class Game extends Observable implements Observer
         Item pogoStick = new FirstPersonItem("PogoStix", 5.0, "rubber-plant.jpg");
         
         //Add Items
-        entrance.addItem(plant);
-        workshop.addItem(sword);
-        dressingroom.addItem(pogoStick);
+        entrance.addItem(plant, "north");
+        workshop.addItem(sword, "south");
+        dressingroom.addItem(pogoStick, "east");
         
         //Create monsters
         Monster kracken = new FirstPersonMonster("Kracken",10,"Kracken.jpg");
@@ -129,9 +129,9 @@ public class Game extends Observable implements Observer
         
         
         //Add Monsters to room
-        entrance.addMonster(kracken);
-        workshop.addMonster(grendel);
-        dinningroom.addMonster(goblin);
+        entrance.addMonster(kracken, "west");
+        workshop.addMonster(grendel, "north");
+        dinningroom.addMonster(goblin, "east");
         
         String playerName = JOptionPane.showInputDialog("Please enter your name:");
         player1 = new Player(playerName,PLAYER_DESCRIPTION,MAX_WEIGHT);
@@ -310,7 +310,8 @@ public class Game extends Observable implements Observer
     	Item item = player1.drop(command.getSecondWord());
     	if (item != null) {
     		System.out.println(item.getItemName() + " has been dropped by " + player1.getPlayerName());
-		    player1.getCurrentPlayerRoom().addItem(item);
+    		//TODO: change "north" in expression bellow to current view direction
+		    player1.getCurrentPlayerRoom().addItem(item, "north");
 		    player1.printItemsAndWeight();
     	} else {
     		System.out.println("You cannot drop an item you're not carrying!");

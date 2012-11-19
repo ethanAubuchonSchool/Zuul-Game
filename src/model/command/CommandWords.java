@@ -102,4 +102,8 @@ public class CommandWords
     	return new Command(reversibleCommands.get(c.getCommandWord()), c.getSecondWord());
     }
     
+    public String[] getDirections()
+    {
+    	return (String[]) reverseSecondWord.values().toArray(new String[0]);
+    }
 }

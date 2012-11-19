@@ -73,4 +73,9 @@ public class Parser
 	public boolean isReversible(String commandWord) {
 		return commands.isReversible(commandWord);
 	}
+	
+	public String[] getDirections()
+	{
+		return commands.getDirections();
+	}
 }
